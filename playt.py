@@ -4,7 +4,7 @@ import subprocess
 
 class Playlist(threading.Thread):
 
-    NEW_PLAYLIST = 'new playliast'
+    NEW_PLAYLIST = 'new playlist'
     STOP_PLAYING = 'stop'
     EXIT = 'exit'
     SIG_INT = 2
@@ -70,7 +70,7 @@ class Playlist(threading.Thread):
     def _stop_playing(self):
         """Implementation of stopping the player process
 
-        Only called but Playlist.run()
+        Only called by Playlist.run()
         """
         if self.m_player:
             self.m_player.send_signal(Playlist.SIG_INT)
@@ -79,7 +79,7 @@ class Playlist(threading.Thread):
     def _play(self, playlist):
         """Implementation of making a player process
 
-        Only called but Playlist.run()
+        Only called by Playlist.run()
 
         Args:
             playlist the directory name the player uses as a list
